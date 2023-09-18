@@ -1,0 +1,19 @@
+1) In /httpd/conf httpd.conf file "AllowOverride" is set to all which allows the system to override Apache settings. If a intruder gets hold of the file system, they can modify the behaviour of the website as their commands will override apache settings. How to correct it- AllowOverride none
+
+2) In /var/www/html/bank privateData.txt file password is visible, which means intruder can change the password since they know the current password. Intruder will also be able to block access to the intended user and will be withdraw funds from the bank account.
+How to correct it- store password in a hashed format. 
+
+3) In index.php file, there is no closing tag for body.
+How to correct- add </body> 
+
+4) In /var/www/html/others/CS140 temp1.txt file secure=false which means cookies can be transmitted even if the connection is insecure. For example http instead of https. This means that attacker can steal cookie data and web browser will allow it since it allows insecure connections. 
+How to correct it- set secure to true.
+
+5) In /var/www/html/others/CS140 temp.txt password value for admin is not hidden. This means that attackers can use this password to login to CS140 and access the CS140 webpage resources.
+How to correct it- store the password in a hashed format.
+
+6) In /var/www/html/bank index.php, after the name and password are inputted by the user, they are displayed in the web address bar as the input parameters. This is a breach of security as unwanted users can use those username and password and login. They can also change the password and restrict access to the intended user of their bank account. Sensitive info
+How to correct- by not displaying the username and password in the address bar and keep it hidden.
+
+7) In /var/www/html dosend.php, since the filetype uploaded will be jpg, it should not be executable therefore chmod should not be 700. If it is executable, attacker can upload executable files (which could be malicious)and trick the server into executing them. Group and others should also be able to read those files.
+How to correct it - change file permissions to 644. So the file can't be executed. 

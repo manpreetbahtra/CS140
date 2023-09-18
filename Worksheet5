@@ -1,0 +1,11 @@
+command to open the image
+good image/original image
+qemu-img create -f qcow2 -F qcow2 -b /dcs/uml/cs140/images/lab1.img lab2.cow 3G
+/usr/libexec/qemu-kvm -m 256 -netdev user,id=n0,hostfwd=tcp::2222-:22,hostfwd=tcp::10080-:80 -device e1000,netdev=n0 lab2.cow
+ssh root@localhost -p 2222
+
+
+bad image/coursework2b image / challenge image
+qemu-img create -f qcow2 -F qcow2 -b /dcs/uml/cs140/images/Coursework2b.img lab5.cow 3G
+/usr/libexec/qemu-kvm -m 256 -netdev user,id=n0,hostfwd=tcp::2223-:22,hostfwd=tcp::10001-:80 -device e1000,netdev=n0 Coursework2b.cow
+ssh root@localhost -p 2223
